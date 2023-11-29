@@ -20,5 +20,9 @@ public class MainController {
         return "sign_up";
     }
 
-
+    @GetMapping("/game")
+    public String game(Model model) {
+        model.addAttribute("title", "Game page");
+        return "game";
+    }
 }
