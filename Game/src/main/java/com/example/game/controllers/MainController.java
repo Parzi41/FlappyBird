@@ -1,5 +1,7 @@
 package com.example.game.controllers;
 
+import com.example.game.models.Leaderboard;
+import com.example.game.repositories.LeaderboardRepo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,4 +19,6 @@ public class MainController {
         model.addAttribute("title", "Sign-up page");
         return "sign_up";
     }
+
+
 }
