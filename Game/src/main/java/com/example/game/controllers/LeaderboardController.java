@@ -22,9 +22,9 @@ public class LeaderboardController {
     public String leaderboard(Model model) {
         Iterable<Leaderboard> leaders = leaderRepo.findAll();
 
-        List<Leaderboard> topElements = getTopElements(leaders, 10);
+        //List<Leaderboard> topElements = getTopElements(leaders, 10);
 
-        model.addAttribute("leaders", topElements);
+        model.addAttribute("leaders", leaders);
         return "leaderboard";
     }
 
@@ -32,7 +32,7 @@ public class LeaderboardController {
         List<Leaderboard> list = StreamSupport.stream(iterable.spliterator(), false)
                 .collect(Collectors.toList());
 
-        list.sort(Comparator.comparing(Leaderboard::getScore).reversed());
+        //list.sort(Comparator.comparing(Leaderboard::getScore).reversed());
 
         return list.subList(0, Math.min(count, list.size()));
     }

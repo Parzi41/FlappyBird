@@ -1,9 +1,6 @@
 package com.example.game.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Leaderboard {
@@ -11,13 +8,21 @@ public class Leaderboard {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String name;
+
+    @Column(name = "user_id", insertable=false, updatable=false)
+    private Long user_id;
     private Long score;
 
-    public Leaderboard(Long id, String name, Long score) {
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "user_id")
+    private UserData user;
+
+    public Leaderboard(Long id, Long user_id, Long score, UserData user) {
         this.id = id;
-        this.name = name;
+        this.user_id = user_id;
         this.score = score;
+        this.user = user;
     }
 
     public Leaderboard() {
@@ -31,12 +36,12 @@ public class Leaderboard {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public Long getUserId() {
+        return user_id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserId(Long user_id) {
+        this.user_id = user_id;
     }
 
     public Long getScore() {
@@ -45,5 +50,13 @@ public class Leaderboard {
 
     public void setScore(Long score) {
         this.score = score;
+    }
+
+    public UserData getUser() {
+        return user;
+    }
+
+    public void setUser(UserData user) {
+        this.user = user;
     }
 }
