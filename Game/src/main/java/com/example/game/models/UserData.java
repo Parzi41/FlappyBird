@@ -6,13 +6,18 @@ import jakarta.persistence.*;
 public class UserData {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @Column(name = "user_id")
+    private Long user_id;
     @Column(unique = true, nullable = false)
     private String login;
     private String pass;
 
-    public UserData(Long id, String login, String pass) {
-        this.id = id;
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+    private Leaderboard leaderboard;
+
+    public UserData(Long user_id, String login, String pass) {
+        this.user_id = user_id;
         this.login = login;
         this.pass = pass;
     }
@@ -21,11 +26,11 @@ public class UserData {
     }
 
     public Long getId() {
-        return id;
+        return user_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(Long user_id) {
+        this.user_id = user_id;
     }
 
     public String getLogin() {

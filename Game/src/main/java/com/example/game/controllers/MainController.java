@@ -13,16 +13,4 @@ public class MainController {
         model.addAttribute("title", "Home page");
         return "home";
     }
-
-    @GetMapping("/sign_up")
-    public String sign_up(Model model) {
-        model.addAttribute("title", "Sign-up page");
-        return "sign_up";
-    }
-
-    @GetMapping("/game")
-    public String game(Model model) {
-        model.addAttribute("title", "Game page");
-        return "game";
-    }
 }
