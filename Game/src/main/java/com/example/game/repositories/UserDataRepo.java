@@ -12,9 +12,4 @@ import org.springframework.data.repository.query.Param;
 public interface UserDataRepo extends JpaRepository<UserData, Void> {
     @Query(value = "EXEC signIn :login, :password, :res OUTPUT;", nativeQuery = true)
     int signIn(@Param("login") String login, @Param("password") String password, int res);
-
-    //@Procedure("signIn")
-    //@Transactional
-    //public int signIn(String login, String password);
-
 }

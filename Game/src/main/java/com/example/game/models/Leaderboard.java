@@ -8,7 +8,6 @@ public class Leaderboard {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-
     @Column(name = "user_id", insertable=false, updatable=false)
     private Long user_id;
     private Long score;

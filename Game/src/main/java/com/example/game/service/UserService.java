@@ -19,10 +19,5 @@ public class UserService {
 
         return userDataRepo.signIn(login, password, result);
 
-        //System.out.println(result);
-
-        //userDataRepo.sign_in(login, password, result);
-
-        //return result;
     }
 }
