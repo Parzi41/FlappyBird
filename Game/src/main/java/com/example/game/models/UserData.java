@@ -16,14 +16,14 @@ public class UserData {
     @PrimaryKeyJoinColumn
     private Leaderboard leaderboard;
 
-    public UserData(Long user_id, String login, String pass) {
-        this.user_id = user_id;
+    public UserData(String login, String pass) {
         this.login = login;
         this.pass = pass;
     }
 
     public UserData() {
     }
+
 
     public Long getId() {
         return user_id;
