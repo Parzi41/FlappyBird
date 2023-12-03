@@ -24,7 +24,6 @@ public class UserData {
     public UserData() {
     }
 
-
     public Long getId() {
         return user_id;
     }
