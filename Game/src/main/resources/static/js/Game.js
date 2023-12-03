@@ -1,7 +1,7 @@
 const canvas = document.getElementById("flappyBirdCanvas");
 const ctx = canvas.getContext("2d");
 
-const bird = { x: 100, y: canvas.height / 2 - 10, width: 20, height: 20, color: "red" };
+const bird = { x: 100, y: canvas.height / 2 - 10, width: 20, height: 20, color: "#f78f5d" };
 const gravity = 0.10;
 let velocity = 0;
 const jumpStrength = 4;
@@ -29,7 +29,7 @@ function sendScoreToBackend(score) {
 
 function drawBackground() {
     // Sky
-    ctx.fillStyle = "skyblue";
+    ctx.fillStyle = "#6bc8f1";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // Grass
@@ -180,7 +180,7 @@ canvas.addEventListener("click", (event) => {
     }
 });
 
-ctx.fillStyle = "black";
+ctx.fillStyle = "white";
 ctx.font = "30px Arial";
 const textWidth = ctx.measureText("Click to Start").width;
 ctx.fillText("Click to Start", canvas.width / 2 - textWidth / 2, canvas.height / 2);
